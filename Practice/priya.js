@@ -57,9 +57,14 @@
 
 
 
-const big_array = [1, 2, 3, [4, 5], 6, [7, 8, [9,10] ]];
-const big = big_array.flat(2);
-const big2 = big_array.flat(Infinity);
+// const big_array = [1, 2, 3, [4, 5], 6, [7, 8, [9,10] ]];
+// const big = big_array.flat(2);
+// const big2 = big_array.flat(Infinity);
 
 
-console.log(big);
+// console.log(big);
+
+let x = 5;
+let y = x;
+x++;
+console.log(x, y);
