@@ -1,0 +1,52 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Keys Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function(event) {
+            if (event.ctrlKey) {
+                alert("You clicked the button while holding the Ctrl key!");
+            } else {
+                alert("You clicked the button without holding the Ctrl key.");
+            }
+        });
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toElement Example</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            display: inline-block;
+        }
+        .box1 { background-color: lightblue; }
+        .box2 { background-color: lightcoral; }
+    </style>
+</head>
+<body>
+    <div class="box box1" id="box1">Box 1</div>
+    <div class="box box2" id="box2">Box 2</div>
+
+    <script>
+        document.getElementById("box1").addEventListener("mouseout", function(event) {
+            alert("You are moving from Box 1 to " + event.toElement.id);
+        });
+
+        document.getElementById("box2").addEventListener("mouseout", function(event) {
+            alert("You are moving from Box 2 to " + event.toElement.id);
+        });
+    </script>
+</body>
+</html>
+

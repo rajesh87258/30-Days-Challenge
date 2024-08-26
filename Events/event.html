@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="images">
+       
+        <li> <img width="200px" id="owl" src="https://tse3.mm.bing.net/th?id=OIP.zcmgPtBIEh6jMEqsD1QX6wHaFA&pid=Api&P=0&h=220 " alt="owl"></li>
+    <li>
+        <a style="color: aqua;" href="https://google.com" id="google">Google</a>
+    </li>
+    
+    </ul>
+    <div id="div1" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+    <div id="div2" style="width: 100px; height: 100px; background-color: lightcoral;"></div>
+</body>
+<script>
+    //    document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    //    }
+
+// type, timestamp, deafaultPrevented
+//target, toElement, srcElement, currentTarget
+//clientX, clientY, screenX, screenY
+//altkey, ctrlkey, shiftkey, keycode
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log(e);
+    // },false)
+    //false =event bubling 
+    //true
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log('click inside the ul');
+    // },false)
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log('click on the owl');
+    // },false)
+
+    
+    
+    
+    // when we click on owl ul also printed it is called event propagation bubbling
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log('click inside the ul');
+    // },true)
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log('click on the owl');
+    // },true)
+    //NOW UL FIRST IT BEHAVE LIKE CAPTURING AND IT COME FROM TOP TO LOWER BUT IN BUBBLE IT GOES LOW TO TOP
+    
+    
+    
+    
+    
+    
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log('click inside the ul');
+    // },false)
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log('click on the owl');
+    //     e.stopPropagation();
+    //     //ONLY OWL WILL CLICK
+    // },false)
+
+
+    // document.getElementById('google').addEventListener('click',
+    //     function(e){
+    //         console.log("google clicked");
+    //         e.preventDefault();
+    //         //IF WE DONOT WANT ANCHOR OR LINK BEHAVIOUR
+    //     }
+    // )
+
+// document.querySelector('#images').addEventListener('click',function(e){
+// console.log(e.target);
+//Show the target where image is clicked
+// console.log(e.target.parentNode);
+//<li></li>
+ 
+// To Remove Li
+// let removeIt = e.target.parentNode
+// removeIt.remove();
+// IT WILL REMOVE ALL UL IF WE ACCIDENTLY CLICK ON UL
+
+//2nd way
+// let removeIt = e.target.parentNode
+// removeIt.parentNode.removeChild(removeIt);
+
+
+
+// console.log(e.target.tagName);
+// if (e.target.tagName === 'IMG'){
+//     console.log(e.target.id);
+//     let removeIt = e.target.parentNode
+//     removeIt.remove();
+// }
+
+
+// })
+
+
+document.getElementById("div1").addEventListener("mouseout", function(event) {
+            console.log(event.toElement); // Output: The element you're moving to
+        });
+</script>
+</html>

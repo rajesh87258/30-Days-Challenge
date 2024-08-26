@@ -1,0 +1,421 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event ScreenX ScreenY Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function(event) {
+            console.log(`screenX: ${event.screenX}, screenY: ${event.screenY}`);
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event KeyCode Example</title>
+</head>
+<body>
+    <input type="text" id="textInput">
+
+    <script>
+        document.getElementById("textInput").addEventListener("keydown", function(event) {
+            console.log(`keyCode: ${event.keyCode}`); // Output: The Unicode character code of the key pressed
+        });
+    </script>
+</body>
+</html> -->
+
+
+1. type
+
+    Description: The type property returns the type of event that was triggered. It is a string representing the event type (e.g., "click", "keydown").
+    Example:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Type Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function(event) {
+            console.log(event.type); // Output: "click"
+        });
+    </script>
+</body>
+</html>
+
+In this example, when you click the button, the console logs the type of the event, which is "click".
+2. timestamp
+
+    Description: The timestamp property provides the time (in milliseconds) at which the event was created. It's a high-resolution time stamp, allowing precise timing measurements.
+    Example:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Timestamp Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function(event) {
+            console.log(event.timeStamp); // Output: A timestamp in milliseconds
+        });
+    </script>
+</body>
+</html>
+
+Clicking the button will log the timestamp of when the click event occurred.
+3. defaultPrevented
+
+    Description: The defaultPrevented property is a boolean that returns true if preventDefault() was called on the event, preventing the default action that belongs to the event.
+    Example:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Default Prevented Example</title>
+</head>
+<body>
+    <a href="https://www.example.com" id="myLink">Go to Example.com</a>
+
+    <script>
+        document.getElementById("myLink").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the default action of navigating to the link
+            console.log(event.defaultPrevented); // Output: true
+        });
+    </script>
+</body>
+</html>
+
+When you click on the link, event.preventDefault() stops the default action (navigating to "https://www.example.com"), and event.defaultPrevented returns true.
+4. target
+
+    Description: The target property refers to the element that triggered the event.
+    Example:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Target Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function(event) {
+            console.log(event.target); // Output: <button id="myButton">Click Me</button>
+        });
+    </script>
+</body>
+</html>
+
+Clicking the button logs the element (<button>) that triggered the event.
+5. toElement
+
+    Description: The toElement property represents the element that the pointing device is moving to, during mouseover and mouseout events.
+    Example:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event ToElement Example</title>
+</head>
+<body>
+    <div id="div1" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+    <div id="div2" style="width: 100px; height: 100px; background-color: lightcoral;"></div>
+
+    <script>
+        document.getElementById("div1").addEventListener("mouseout", function(event) {
+            console.log(event.toElement); // Output: The element you're moving to
+        });
+    </script>
+</body>
+</html>
+
+When the mouse moves out of the first div, event.toElement will log the element the mouse moves into.
+6. srcElement (deprecated, use target instead)
+
+    Description: Similar to target, srcElement refers to the element that triggered the event. It is a legacy property primarily used in older versions of Internet Explorer.
+    Example:
+
+For modern use, refer to the target property example above.
+7. currentTarget
+
+    Description: The currentTarget property represents the element to which the event handler is currently attached, which may be different from event.target if event delegation is used.
+    Example:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event CurrentTarget Example</title>
+</head>
+<body>
+    <div id="parent">
+        <button id="child">Click Me</button>
+    </div>
+
+    <script>
+        document.getElementById("parent").addEventListener("click", function(event) {
+            console.log(event.currentTarget); // Output: <div id="parent">
+            console.log(event.target);        // Output: <button id="child">Click Me</button>
+        });
+    </script>
+</body>
+</html>
+
+Clicking on the button logs the div (currentTarget) and the button (target).
+8. clientX and clientY
+
+    Description: The clientX and clientY properties provide the horizontal and vertical coordinates of the mouse pointer relative to the viewport (browser window), excluding any scroll offset.
+    Example:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event ClientX ClientY Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function(event) {
+            console.log(`clientX: ${event.clientX}, clientY: ${event.clientY}`);
+        });
+    </script>
+</body>
+</html>
+
+Clicking the button logs the coordinates of the click within the browser window.
+9. screenX and screenY
+
+    Description: The screenX and screenY properties provide the horizontal and vertical coordinates of the mouse pointer relative to the screen (monitor) that the browser is displayed on.
+    Example:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event ScreenX ScreenY Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function(event) {
+            console.log(`screenX: ${event.screenX}, screenY: ${event.screenY}`);
+        });
+    </script>
+</body>
+</html>
+
+Clicking the button logs the coordinates of the click relative to the screen.
+10. altKey, ctrlKey, and shiftKey
+
+    Description: These properties return a boolean indicating whether the "Alt", "Ctrl", or "Shift" keys were pressed when the event was triggered.
+    Example:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Modifier Keys Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function(event) {
+            console.log(`Alt: ${event.altKey}, Ctrl: ${event.ctrlKey}, Shift: ${event.shiftKey}`);
+        });
+    </script>
+</body>
+</html>
+
+Clicking the button while holding any of the modifier keys will log whether each key was pressed (true or false).
+11. keyCode (deprecated, use key or code instead)
+
+    Description: The keyCode property returns the Unicode character code of the key that triggered the event. It's deprecated in favor of the key or code properties.
+    Example:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event KeyCode Example</title>
+</head>
+<body>
+    <input type="text" id="textInput">
+
+    <script>
+        document.getElementById("textInput").addEventListener("keydown", function(event) {
+            console.log(`keyCode: ${event.keyCode}`); // Output: The Unicode character code of the key pressed
+        });
+    </script>
+</body>
+</html>
+
+Typing into the text input logs the key code of the pressed key.
+
+These properties and methods are fundamental for handling events in JavaScript and are widely used to create interactive web applications.
+You said:
+10. altKey, ctrlKey, and shiftKey, didnot understand can you explain in simple leanguage
+ChatGPT said:
+ChatGPT
+
+Sure, let me explain altKey, ctrlKey, and shiftKey in simpler terms.
+altKey, ctrlKey, and shiftKey
+
+These properties are used to check if certain special keys on your keyboard (like the "Alt", "Ctrl", or "Shift" keys) are being held down when an event happens, like a mouse click or a key press.
+
+    altKey: This property tells you if the "Alt" key was pressed. If it was, altKey will be true; if not, it will be false.
+    ctrlKey: This property checks if the "Ctrl" key was pressed. It will be true if the "Ctrl" key was pressed, otherwise, it will be false.
+    shiftKey: This property checks if the "Shift" key was pressed. It will be true if the "Shift" key was pressed, otherwise, it will be false.
+
+Example in Simple Terms
+
+Imagine you have a button on your webpage, and you want to know if the user clicked it while holding down the "Ctrl" key. You can use ctrlKey to check this.
+
+Here's an example:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Keys Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function(event) {
+            if (event.ctrlKey) {
+                alert("You clicked the button while holding the Ctrl key!");
+            } else {
+                alert("You clicked the button without holding the Ctrl key.");
+            }
+        });
+    </script>
+</body>
+</html>
+
+How It Works:
+
+    When you click the button, the click event is triggered.
+    The code checks if the "Ctrl" key was held down during the click using event.ctrlKey.
+    If you were holding the "Ctrl" key, you'll see an alert saying, "You clicked the button while holding the Ctrl key!"
+    If you weren't holding the "Ctrl" key, you'll see an alert saying, "You clicked the button without holding the Ctrl key."
+
+This is useful f
+
+or adding extra functionality based on whether the user is holding a key, like opening a link in a new tab or selecting multiple items in a list.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Modifier Keys Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function(event) {
+            console.log(`Alt: ${event.altKey}, Ctrl: ${event.ctrlKey}, Shift: ${event.shiftKey}`);
+        });
+    </script>
+</body>
+</html> -->
