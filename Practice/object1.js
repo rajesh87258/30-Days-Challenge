@@ -91,11 +91,11 @@ console.log(tinderUser.hasOwnProperty('loggedIn'));
 
 
 //DESTRUCTURE 
-const course = {
-    courseName : " apna sapna",
-    price : "999",
-    courseInstructor : "rajesh"
-}
+// const course = {
+//     courseName : " apna sapna",
+//     price : "999",
+//     courseInstructor : "rajesh"
+// }
 // course.courseInstructor = "rajesh kashyap";
 // console.log(course.courseInstructor);
 // rajesh kashyap
